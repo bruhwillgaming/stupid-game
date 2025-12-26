@@ -1,0 +1,215 @@
+/* Base setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    background: radial-gradient(circle at top, #2b2b52 0, #05040a 60%, #000 100%);
+    color: #f8f8f8;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* CRT / retro vibe */
+.scanlines {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px
+    );
+    background-size: 100% 2px;
+    mix-blend-mode: soft-light;
+    opacity: 0.15;
+    z-index: 100;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(5, 4, 10, 0.9);
+    border-bottom: 2px solid #ffec27;
+    backdrop-filter: blur(6px);
+}
+
+.logo-glitch {
+    font-family: "Press Start 2P", system-ui, sans-serif;
+    font-size: 0.9rem;
+    color: #ffec27;
+    text-shadow: 2px 2px #ff004d, -2px -2px #00e756;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    font-family: "Press Start 2P", system-ui, sans-serif;
+    font-size: 0.55rem;
+}
+
+.nav-links a {
+    color: #f8f8f8;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 0;
+    height: 2px;
+    background: #ffec27;
+    transition: width 0.2s ease-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero section */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem 2rem;
+}
+
+.hero-inner {
+    text-align: center;
+    max-width: 720px;
+}
+
+.game-title {
+    font-family: "Press Start 2P", system-ui, sans-serif;
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
+    margin-bottom: 1.5rem;
+    color: #ffec27;
+    text-shadow: 4px 4px #ff004d, -3px -3px #00e756;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    color: #f3f3f3;
+}
+
+.hero-note {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Itch.io badge */
+.itch-badge {
+    display: inline-block;
+    transform: scale(1);
+    transition: transform 0.15s ease-out, filter 0.15s ease-out;
+}
+
+.itch-badge img {
+    display: block;
+    height: 60px;
+}
+
+.itch-badge.large img {
+    height: 80px;
+}
+
+.itch-badge:hover {
+    transform: scale(1.08) translateY(-2px);
+    filter: drop-shadow(0 0 8px rgba(255, 236, 39, 0.65));
+}
+
+/* Panels */
+main {
+    padding: 0 1.5rem 3rem;
+}
+
+.panel {
+    max-width: 900px;
+    margin: 0 auto 2.25rem;
+    padding: 1.75rem 1.5rem;
+    background: rgba(5, 4, 10, 0.9);
+    border: 2px solid #ffec27;
+    box-shadow: 0 0 0 3px #16161d;
+}
+
+.panel h2 {
+    font-family: "Press Start 2P", system-ui, sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: #ffec27;
+}
+
+.panel p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.feature-list {
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.feature-list li {
+    margin-bottom: 0.5rem;
+}
+
+.download-panel {
+    text-align: center;
+}
+
+.download-note {
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+}
+
+.dev-name {
+    color: #00e756;
+    font-family: "Press Start 2P", system-ui, sans-serif;
+    font-size: 0.7rem;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 1.5rem 1rem 2.5rem;
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+    }
+
+    .panel {
+        padding: 1.25rem 1rem;
+    }
+}
